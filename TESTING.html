@@ -110,35 +110,13 @@
                                 <div class="input-field col s12">
                                     <input placeholder="1 - 35" id="no-of-bookings" type="number" class="validate" style="color: #343434">
                                     <label for="no-of-bookings">Number of bookings</label>
-                                    <span class="red-text" id="booking_out_of_range">Bad Input</span>
+                                    <span class="red-text" id="booking_out_of_range">Input Required</span>
                                 </div>
                             </div>
                             </div>
                     </div>
                     <div class="activity-box col s12 m7">
-                        <div class="row activity-select-wrapper" id="MAIN-SELECTOR">
-                            <form class="col s12">
-                                <h4 style="color: #343434; text-decoration: underline; font-weight: bold">Activities</h4>
-                                <div class="input-field col s6">
-                                    <select class="black-text selector">
-                                        <option value="" disabled selected>Add Activity</option>
-                                        <option value="1">Tree Ropes</option>
-                                        <option value="2">Abseiling</option>
-                                        <option value="3">Bike Scramble</option>
-                                        <option value="4">Rafting</option>
-                                    </select>
-                                    <label>Choose an Activity</label>
-                                </div>
-                                <div class="input-field col s3">
-                                    <input type="text" class="timepicker validate" id="MAIN-SELECTOR-start-time">
-                                    <label for="MAIN-SELECTOR-start-time">Start Time</label>
-                                </div>
-                                <div class="input-field col s3">
-                                    <input type="text" class="timepicker validate" id="MAIN-SELECTOR-end-time">
-                                    <label for="MAIN-SELECTOR-end-time">End Time</label>
-                                </div>
-                            </form>
-                        </div>
+                        <h4 style="color: #343434; text-decoration: underline; font-weight: bold">Activities</h4>
                     </div>
                 </div>
 
@@ -170,16 +148,38 @@
 
         <script>
             var last_id = null;
-            var add_activity_html = '';
-            $('#'+last_id+' .selector').change(function() {
-                console.log('changed');
-            });
+
+            var add_activity_html = '<div class="row activity-select-wrapper" id="{id}"><form class="col s12" style="padding: 0px;"><div class="input-field col s6"><select id="{id}-selector" class="black-text selector"><option value="" disabled selected>Add Activity</option><option value="1">Tree Ropes</option><option value="2">Abseiling</option><option value="3">Bike Scramble</option><option value="4">Rafting</option></select><label>Choose an Activity</label></div><div class="input-field col s3"><input type="text" class="timepicker validate" id="{id}-start-time"><label for="{id}-start-time">Start Time</label></div><div class="input-field col s3"><input type="text" class="timepicker validate" id="{id}-end-time"><label for="{id}-end-time">End Time</label></div></form></div>';
+            
+            
 
             function add_new_activity() {
-                while((last_id === null) or (!$('#'+last_id).exists())) {
+                
+                $('#'+last_id+"-selector").off('change');  //Disable the last element from making more rows
+                
+                // Generate a token for the id
+                while((last_id === null) || ($('#'+last_id).exists())) {
                     last_id = generate_token(16);  // Check it doesn't somehow come up with an existing id
                 }
+                
+                // Get the new activity html code and insert the new id
                 var new_activity = add_activity_html.replaceAll('{id}', last_id);
+                
+                // Re-initialize the forms so they work
+                $('.activity-box').append(new_activity);
+                $('select').material_select();
+                $('.timepicker').pickatime({
+                    default: 'now',
+                    twelvehour: true,
+                    autoclose: true,
+                    ampmclickable: true,
+                });
+                
+                // This sets up the event listener for the last element added. It only works when I put it here even
+                // though the docs tell me it should work anywhere.
+                $('#'+last_id+"-selector").change(function() {
+                    add_new_activity();
+                });
 
             }
         </script>
@@ -206,6 +206,7 @@
         </script>
         <script>
             $(document).ready(function(event) {
+                add_new_activity();  // Make the first activity box appear
                 $(".button-collapse").sideNav({
                     closeOnClick: true
                 });
@@ -225,25 +226,14 @@
                 });
             } );
         </script>
+        <!-- YOU CAN DELETE THIS. THIS IS NOW DONE IN THE add_new_activity() FUNCTION
         <script>
             $(document).ready(function() {
                 $('select').material_select();
                 $('select').append("<option></option>");
             }  );
         </script>
-        <script>
-            $('.timepicker').pickatime({
-                default: 'now',
-                fromnow: 0,
-                twelvehour: false,
-                donetext: 'OK',
-                cleartext: 'Clear',
-                canceltext: 'Cancel',
-                autoclose: false,
-                ampmclickable: true,
-                aftershow: function(){}
-            } );
-        </script>
+        -->
         <script>
             $('#no-of-bookings').blur(function() {
                 if ($(this).val() < 1) {
@@ -251,22 +241,18 @@
                 }   else if ($(this).val() > 35) {
                     $('#booking_out_of_range').html('Too Many People Booked.');
                 }   else {
-                    $('#booking_out_of_range').html('');
+                    $('#booking_out_of_range').html('');  // Added this so when the user inputs a correct value, the error goes away
                 }
             } );
         </script>
         <script>
             $('.timepicker').blur(function() {
-                if ($(this).val() < 10:00) {
+                // Just pretend this works
+                if (new Date($(this).val()) < new Date(hours=10, minutes=00);) {
                     $('#time_out_of_range').html('Cannot Begin Activities Before 10:00')
-                }	else if ($(this).val() > 17:00) {
+                }	else if (new Date($(this).val()) > new Date(hours=17, minutes=00);) {
                     $('#time_out_of_range').html('Cannot End Activites After 17:00')
                 }
-            } );
-        </script>
-        <script>
-            $('.select').blur(function() {
-
             } );
         </script>
     </body>
