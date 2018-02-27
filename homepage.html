@@ -1,207 +1,207 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<style>
-body, html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-	font-family: corbel, sans-serif !important;
-	color: #fdfdfd;	
-}
-.parallax {
-    height: 100%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-#hp_image1 {
-	background-image: url("Homepage.jpg");
-}
-#hp_image2 {
-	background-image: url("Forest_3.jpg");
-}
-#hp_image3 {
-	background-image: url("Footer.jpg");
-}
-#fullheight {
-	position: fixed;
-}
-.shadow-box {
-	position: absolute;
-	width: 70vw;
-	height: 70vh;
-	background-color: rgba(50, 50, 50, 0.5);
-}
-.information-box-wrapper {
-	position: absolute;
-	width: 80vw;
-	height: 80vh;
-	padding-top: 15vh;
-	padding-left: 15vw;
-}
-.information-box {
-	position: absolute;
-	width: 70vw;
-	height: 70vh;
-	background-color: rgba(255, 253, 208, 0.7);
-}
-.information-box h1:nth-child(1) {
-	font-size: 5vw;
-}
-.information-box h1:nth-child(2) {
-	font-size: 8.5vw;
-}
-.booking-btn-wrapper {
-	text-align: center;
-}
-.booking-btn {
-	position: absolute;
-	top: 60%;
-	left: calc(50% - 125px);
-	transform: translateX (-50%);
-	width: 250px;
-	height: 80px;
-	font-size: 1.8vw;
-	line-height: 80px;
-}
-.page-autoscroll {
-	position: absolute;
-	top: 52.5vh;
-	left: 27.5vw;
-	font-size: 2.125vw;
-}
-.map-wrapper {
-	position: absolute;
-	top: 15vh;
-	left: 35vw;
-}
-.directions-textbox {
-	text-align: center;
-	width: calc(35vw - 25px);
-}
-</style>
-</head>
-<body>
-<ul class="side-nav" id="mobile-demo">
-	<li class="active always-active"><a href="homepage.html">Homepage</a></li>
-	<li><a href="#hp_image2">About Us</a></li>
-    <li><a href="#hp_image3">Get Directions</a></li>
-    <li><a href="bookings.html">Bookings</a></li>
-    <li><a href="activities.html">Activities</a></li>
-    <li><a href="cafe.html">Caf&eacute;</a></li>
-</ul>
-<div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper">
-            <a href="homepage.html" class="brand-logo center">Out & Up</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-				<li class="active"><a href="homepage.html">Homepage</a></li>
-				<li><a href="#hp_image2">About Us</a></li>
-				<li><a href="#hp_image3">Get Directions</a></li>
-                <li><a href="booking.html">Bookings</a></li>
-                <li><a href="activities.html">Activities</a></li>
-                <li><a href="cafe.html">Caf&eacute;</a></li>
-            </ul>
+    <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            body, html {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                font-family: corbel, sans-serif !important;
+                color: #fdfdfd;	
+            }
+            .parallax {
+                height: 100%;
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            #hp_image1 {
+                background-image: url("Homepage.jpg");
+            }
+            #hp_image2 {
+                background-image: url("Forest_3.jpg");
+            }
+            #hp_image3 {
+                background-image: url("Footer.jpg");
+            }
+            #fullheight {
+                position: fixed;
+            }
+            .shadow-box {
+                position: absolute;
+                width: 70vw;
+                height: 70vh;
+                background-color: rgba(50, 50, 50, 0.5);
+            }
+            .information-box-wrapper {
+                position: absolute;
+                width: 80vw;
+                height: 80vh;
+                padding-top: 15vh;
+                padding-left: 15vw;
+            }
+            .information-box {
+                position: absolute;
+                width: 70vw;
+                height: 70vh;
+                background-color: rgba(255, 253, 208, 0.7);
+            }
+            .information-box h1:nth-child(1) {
+                font-size: 5vw;
+            }
+            .information-box h1:nth-child(2) {
+                font-size: 8.5vw;
+            }
+            .booking-btn-wrapper {
+                text-align: center;
+            }
+            .booking-btn {
+                position: absolute;
+                top: 60%;
+                left: calc(50% - 125px);
+                transform: translateX (-50%);
+                width: 250px;
+                height: 80px;
+                font-size: 1.8vw;
+                line-height: 80px;
+            }
+            .page-autoscroll {
+                position: absolute;
+                top: 52.5vh;
+                left: 27.5vw;
+                font-size: 2.125vw;
+            }
+            .map-wrapper {
+                position: absolute;
+                top: 15vh;
+                left: 35vw;
+            }
+            .directions-textbox {
+                text-align: center;
+                width: calc(35vw - 25px);
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="side-nav" id="mobile-demo">
+            <li class="active always-active"><a href="homepage.html">Homepage</a></li>
+            <li><a href="#hp_image2">About Us</a></li>
+            <li><a href="#hp_image3">Get Directions</a></li>
+            <li><a href="bookings.html">Bookings</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="cafe.html">Caf&eacute;</a></li>
+        </ul>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="homepage.html" class="brand-logo center">Out & Up</a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li class="active"><a href="homepage.html">Homepage</a></li>
+                        <li><a href="#hp_image2">About Us</a></li>
+                        <li><a href="#hp_image3">Get Directions</a></li>
+                        <li><a href="booking.html">Bookings</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="cafe.html">Caf&eacute;</a></li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-    </nav>
-</div>
-<div id="fullheight"></div>
-<div class="parallax" id="hp_image1">
-	<div class="information-box-wrapper">
-		<div class="shadow-box">
-			<div class="information-box">
-				<h1 class="center" style="font-weight: bold">Welcome to</h1>
-				<h1 class="center" style="font-weight: bold">OUT & UP</h1>
-				<div class="booking-btn-wrapper">
-					<a class="btn booking-btn waves-effect" style="background-color: #ee6e73; font-weight: bold" href="booking.html">BOOK NOW</a>
-				</div>
-				<div class="page-autoscroll">
-					<p>or <a href="#hp_image2" style="color: white; text-decoration: underline">Find Out More</a></p>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="parallax" id="hp_image2">
-	<div class="information-box-wrapper">
-		<div class="shadow-box">
-			<div class="information-box">
-				<h2 class="center" style="font-weight: bold">About Us</h2>
-				<p class="center" style="font-size: 2vw">'Out and Up' is a company that runs team-building exercises for young adults.</p>
-				<p class="center" style="font-size: 2vw">With an activity centre which includes an assault course, a bike trail, a <a href="cafe.html" style="color: white; text-decoration: underline">caf&eacute</a>, and more there's plenty to do in a day.</p>
-				<p class="center" style="font-size: 2vw">The activity centre is designed to cater for all ages, especially adults between the age of 17 and 23.</p>
-				<p class="center" style="font-size: 2vw">To find out more about the <a href="activities.html" style="color: white; text-decoration: underline">activities that we have to offer</a>, visit the activities page, or <a href="#hp_image3" style="color: white; text-decoration: underline">come and visit us</a> for the day.</p>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="parallax" id="hp_image3">
-	<div class="information-box-wrapper">
-		<div class="shadow-box">
-			<div class="information-box">
-				<h2 class="center" style="font-weight: bold">Directions and Contact</h2>
-				<div class="directions-textbox">
-					<p style="font-size: 2vw">It's easy to get in touch . . .</p>
-					<p style="font-size: 2vw">&#9679; Email:  enqs@outandup.co.uk</p>
-					<p style="font-size: 2vw">&#9679; Phone:  0293 99 734</p>
-					<p style="font-size: 2vw">&#9679; Post:  Out and Up, Elkstone, Cheltenham, GL53 9PD</p>
-				</div>
-				<div class="map-wrapper">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d19734.80717752205!2d-2.049587!3d51.808885!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487110c697a9196b%3A0x5445a8d77b04f281!2sElkstone%2C+Cheltenham+GL53+9PD!5e0!3m2!1sen!2suk!4v1517225407612" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.txt"></script>
-<script>
-window.onload = function(event) {
-	var totalHeight = 0;
-	Array.prototype.slice.call(document.getElementsByClassName("parallax")).forEach (function(element) {
-		totalHeight += element.offsetHeight;
-		});
-	document.getElementById("fullheight").style.height = totalHeight;
-}
-window.onscroll = function(event) {
-	Array.prototype.slice.call(document.getElementsByClassName("parallax")).forEach (function(element) {
-	});
-}
-</script>
-<script>
-$(document).ready(function(event) {
-	$(".button-collapse").sideNav({
-		closeOnClick: true
-	});
-	$(".side-nav li").click(function(event) {
-		$("li:not(.always-active)").removeClass("active");
-		$(this).addClass("active");
-		console.log($(this));
-			});
-	$(document).ready(function(event) {
-		$('.parallax').scrollSpy({
-		getActiveElement: function(id) {
-			$("li").removeClass("active");
-			$('a[href="#' + id + '"]').parent().addClass("active");
-			return 'a[href="#' + id + '"]';
-		}
-		});
-    });
-} );
-</script>
-<script>
-$(document).on('click', 'a[href^="#"]', function(event) {
-    event.preventDefault();
-    $('html, body').animate({
-        scrollTop: $($.attr(this, 'href')).offset().top,
-    }, 750);
-});
-</script>	
-</body>
+        <div id="fullheight"></div>
+        <div class="parallax" id="hp_image1">
+            <div class="information-box-wrapper">
+                <div class="shadow-box">
+                    <div class="information-box">
+                        <h1 class="center" style="font-weight: bold">Welcome to</h1>
+                        <h1 class="center" style="font-weight: bold">OUT & UP</h1>
+                        <div class="booking-btn-wrapper">
+                            <a class="btn booking-btn waves-effect" style="background-color: #ee6e73; font-weight: bold" href="booking.html">BOOK NOW</a>
+                        </div>
+                        <div class="page-autoscroll">
+                            <p>or <a href="#hp_image2" style="color: white; text-decoration: underline">Find Out More</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="parallax" id="hp_image2">
+            <div class="information-box-wrapper">
+                <div class="shadow-box">
+                    <div class="information-box">
+                        <h2 class="center" style="font-weight: bold">About Us</h2>
+                        <p class="center" style="font-size: 2vw">'Out and Up' is a company that runs team-building exercises for young adults.</p>
+                        <p class="center" style="font-size: 2vw">With an activity centre which includes an assault course, a bike trail, a <a href="cafe.html" style="color: white; text-decoration: underline">caf&eacute</a>, and more there's plenty to do in a day.</p>
+                        <p class="center" style="font-size: 2vw">The activity centre is designed to cater for all ages, especially adults between the age of 17 and 23.</p>
+                        <p class="center" style="font-size: 2vw">To find out more about the <a href="activities.html" style="color: white; text-decoration: underline">activities that we have to offer</a>, visit the activities page, or <a href="#hp_image3" style="color: white; text-decoration: underline">come and visit us</a> for the day.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="parallax" id="hp_image3">
+            <div class="information-box-wrapper">
+                <div class="shadow-box">
+                    <div class="information-box">
+                        <h2 class="center" style="font-weight: bold">Directions and Contact</h2>
+                        <div class="directions-textbox">
+                            <p style="font-size: 2vw">It's easy to get in touch . . .</p>
+                            <p style="font-size: 2vw">&#9679; Email:  enqs@outandup.co.uk</p>
+                            <p style="font-size: 2vw">&#9679; Phone:  0293 99 734</p>
+                            <p style="font-size: 2vw">&#9679; Post:  Out and Up, Elkstone, Cheltenham, GL53 9PD</p>
+                        </div>
+                        <div class="map-wrapper">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d19734.80717752205!2d-2.049587!3d51.808885!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487110c697a9196b%3A0x5445a8d77b04f281!2sElkstone%2C+Cheltenham+GL53+9PD!5e0!3m2!1sen!2suk!4v1517225407612" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.txt"></script>
+        <script>
+            window.onload = function(event) {
+                var totalHeight = 0;
+                Array.prototype.slice.call(document.getElementsByClassName("parallax")).forEach (function(element) {
+                    totalHeight += element.offsetHeight;
+                });
+                document.getElementById("fullheight").style.height = totalHeight;
+            }
+            window.onscroll = function(event) {
+                Array.prototype.slice.call(document.getElementsByClassName("parallax")).forEach (function(element) {
+                });
+            }
+        </script>
+        <script>
+            $(document).ready(function(event) {
+                $(".button-collapse").sideNav({
+                    closeOnClick: true
+                });
+                $(".side-nav li").click(function(event) {
+                    $("li:not(.always-active)").removeClass("active");
+                    $(this).addClass("active");
+                    console.log($(this));
+                });
+                $(document).ready(function(event) {
+                    $('.parallax').scrollSpy({
+                        getActiveElement: function(id) {
+                            $("li").removeClass("active");
+                            $('a[href="#' + id + '"]').parent().addClass("active");
+                            return 'a[href="#' + id + '"]';
+                        }
+                    });
+                });
+            } );
+        </script>
+        <script>
+            $(document).on('click', 'a[href^="#"]', function(event) {
+                event.preventDefault();
+                $('html, body').animate({
+                    scrollTop: $($.attr(this, 'href')).offset().top,
+                }, 750);
+            });
+        </script>	
+    </body>
 </html>
