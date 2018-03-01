@@ -46,8 +46,8 @@
                     padding-left: 0px;
                 }
             }
-            .booking-box, .activity-box {
-                position: relative;
+            .booking-box, .activity-box, .cafereserve-box, .contact-box, .payment-box {
+                position: absolute;
             }
             .input-field input:focus + label {
                 color: #ee6e73 !important;
@@ -72,6 +72,21 @@
             input {
                 color: #000000 !important;
             }
+			input[type=range]::-webkit-slider-thumb {
+				background-color: #ee6e73;
+			}
+			input[type=range]::-moz-range-thumb {
+				background-color: #ee6e73;
+			}
+			input[type=range]::-ms-thumb {
+				background-color: #ee6e73;
+			}
+			  input[type=range] + .thumb {
+				background-color: #ee6e73;
+			}
+			input[type=range] + .thumb.active .value {
+				color: #fdfdfd;
+			}
         </style>
     </head>
     <body>
@@ -102,23 +117,48 @@
         <div class="par" data-parallax="0.5"></div>
         <div class="content-box-wrapper">
             <div class="content-box row">
-                <div class="booking-box col s12 m4">
+                <div class="booking-box col s12 m6">
                     <div class="row">
                         <form class="col s12">
                             <h4 style="color: #343434; text-decoration: underline; font-weight: bold">Booking</h4>
                             <div class="row">
-                                <div class="input-field col s12">
+                                <div class="input-field col s8">
                                     <input placeholder="1 - 35" id="no-of-bookings" type="number" class="validate" style="color: #343434">
                                     <label for="no-of-bookings">Number of bookings</label>
                                     <span class="red-text" id="booking_out_of_range">Input Required</span>
                                 </div>
+								<div class="input-field col s4">
+									<input id="booking-date" type="text" class="datepicker">
+									<label for="booking-date">Booking Date</label></label>
+								</div>
                             </div>
                         </form>
                     </div>
-                    <div class="activity-box col s12 m7">
-                        <h4 style="color: #343434; text-decoration: underline; font-weight: bold">Activities</h4>
-                    </div>
                 </div>
+				<div class="activity-box col s12 m6" style="top: 0%; right: 0%">
+                    <h4 style="color: #343434; text-decoration: underline; font-weight: bold">Activities</h4>
+                </div>
+				<div class="cafereserve-box col s11 m5" style="top: 20%; left: 2%">
+					<p style="color: #343434; font-size: 1.3em">Bookings are able to be made for the caf&eacute;.  You may place reservations for the caf&eacute; here.</p>
+					<form action="#">
+						<p class="range-field">
+							<input type="range" id="test5" min="0" max="35" />
+						</p>
+					</form>
+				</div>
+				<!-- MAKE THESE DIV'S LOOK THE SAME AS THE TOP ONE -->
+				<div class="divider" style="color: #343434"></div>
+				<div class="contact-box col s12 m6" style="top: 35%; left 0%">
+					<h4 style="color: #343434; text-decoration: underline; font-weight: bold">Contact Details</h4>
+					<div class="input-field col s6">
+						<input id="first_name" type="text">
+						<label for="first_name">First Name</label>
+					</div>
+					<div class="input-field col s6">
+						<input id="last_name" type="text">
+						<label for="last_name">Last Name</label>
+					</div>
+				</div>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -221,6 +261,16 @@
                 }
             } );
         </script>
+		<script>
+			$('.datepicker').pickadate({
+                selectMonths: true,
+                selectYears: 15,
+                today: 'Today',
+                clear: 'Clear',
+                close: 'Ok',
+                closeOnSelect: false
+            } );
+		</script>
         <script>
             $('.timepicker').blur(function() {
                 // Just pretend this works
@@ -231,5 +281,21 @@
                 }
             } );
         </script>
+		<script>
+			var slider = document.getElementById('test-slider');
+			noUiSlider.create(slider, {
+				start: [20, 80],
+				connect: true,
+				step: 1,
+				orientation: 'horizontal',
+				range: {
+					'min': 0,
+					'max': 35
+				},
+				format: wNumb({
+					decimals: 0
+				})
+			} );
+		</script>
     </body>
 </html>
