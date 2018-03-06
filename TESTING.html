@@ -322,12 +322,13 @@
 				// This sets up the event listener for the last element added. It only works when I put it here even though the docs tell me it should work anywhere.
                 $('#'+last_id+"-selector").change(onchangefunction);
 				$('#'+last_id+"-selector").change(update_table);
+                update_table();
             }
 			function update_table() {
 				$("#confirm_table tr:not(.no-delete)").detach();
 				$("select.activity-select-dropdown").each(function(){
 					if ($(this).val() === null) { return true; } //Return true to continue to the next element in the loop as per the JQuery documentation
-					$("#confirm_table").prepend("<tr><td>NAME</td><td>PRICE</td></tr>".replace('NAME', activities[$(this).val()]).replace("PRICE", $("#no_of_bookings").val() * 5) );
+					$("#confirm_table").prepend("<tr><td>NAME</td><td>£<span>PRICE</span></td></tr>".replace('NAME', activities[$(this).val()]).replace("PRICE", $("#no_of_bookings").val() * 5) );
 				});
 			}
         </script>
@@ -378,10 +379,10 @@
 					$('#cafe_price').html($(this).val() * 2);
 				});
 				$('.range-field input, #no_of_bookings, select.activity-select-dropdown').change(function(){
-					var total = 0; //parseInt($('#cafe_price').val());
+					var total = parseInt($('#cafe_price').html());
 					$("#confirm_table tr:not(.no-delete)").each(function(){
-						total += parseInt($(this).children().eq(1).html());
-						console.log($(this).children().eq(1).html());
+						total += parseInt($(this).children().eq(1).children().eq(0).html());
+						console.log($(this).children().eq(1).children().eq(0).html());
 					});
 					$('#booking_total').html(total);
 				});
