@@ -97,12 +97,14 @@
 			input[type=range] + .thumb.active .value {
 				color: #fdfdfd;
 			}
-			.confirm-button {
+			.confirm-btn {
 				position: absolute;
 				height: 100px;
 				width: 300px;
+				left: 67.5%; transform: translateX(-32.5%);
+				bottom: 2.5%;
 				font-size: 1.8em;
-				line-height: 80px;
+				line-height: 50px;
 			}
         </style>
     </head>
@@ -262,6 +264,7 @@
                         </form>
                     </div>
                 </div>
+				<a class="btn confirm-btn waves-effect" style="background-color: #ee6e73; font-weight: bold" href="confirmation.html">CONFIRM BOOKING</a>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -328,7 +331,7 @@
 				$("#confirm_table tr:not(.no-delete)").detach();
 				$("select.activity-select-dropdown").each(function(){
 					if ($(this).val() === null) { return true; } //Return true to continue to the next element in the loop as per the JQuery documentation
-					$("#confirm_table").prepend("<tr><td>NAME</td><td>£<span>PRICE</span></td></tr>".replace('NAME', activities[$(this).val()]).replace("PRICE", $("#no_of_bookings").val() * 5) );
+					$("#confirm_table").prepend("<tr><td>NAME</td><td>&pound<span>PRICE</span></td></tr>".replace('NAME', activities[$(this).val()]).replace("PRICE", $("#no_of_bookings").val() * 5) );
 				});
 			}
         </script>
