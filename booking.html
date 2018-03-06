@@ -13,7 +13,7 @@
                 color: #fdfdfd;	
             }
             .par {
-                background-image: url("Tree_bark_2.jpg");
+                background-image: url("Tree_bark.jpg");
                 position: absolute;
                 height: 113.5%;
                 width: 100%;
@@ -23,15 +23,87 @@
             }
             .content-box-wrapper {
                 position: absolute;
-                width: 60vw;
-                padding-left: 20vw;
+                width: 70vw;
+                padding-left: 19vw;
             }
             .content-box {
                 position: absolute;
                 height: 120vh;
                 width: 60vw;
-                background-color: rgba(201, 221, 255, 1);
+                background-color: #fdfdfd;
             }
+            @media screen and (max-width: 900px) {
+                .content-box { width: 80vw; }
+                .content-box-wrapper {
+                    width: 80vw;
+                    padding-left: 8.5vw; /* I don't know why 8.5vh makes it centered */
+                }
+            }
+            @media screen and (max-width: 600px) {
+                .content-box { width: 100vw; }
+                .content-box-wrapper {
+                    width: 100vw;
+                    padding-left: 0px;
+                }
+            }
+            .booking-box, .activity-box, .cafereserve-box, .contact-box, .payment-box {
+                position: absolute;
+            }
+			.confirmation-box {
+				position: absolute;
+				background-color: #ee6e73;
+			}
+			.confirmation-info-box {
+				position: absolute;
+				font-size: 1.125em;
+				color: #343434;
+				background-color: #fdfdfd;
+			}
+            .input-field input:focus + label {
+                color: #ee6e73 !important;
+            }
+            .row .input-field input:focus {
+                border-bottom: 1px solid #ee6e73 !important;
+                box-shadow: 0 1px 0 0 #ee6e73 !important;
+            }
+            .input-field input[type=text].valid {
+                border-bottom: 1px solid #ee6e73;
+                box-shadow: 0 1px 0 0 #ee6e73;
+            }
+            .picker__box{
+                background-color: #ee6e73;
+            }
+            .picker__date-display, .picker__weekday-display {
+                background-color: #ee6e73;
+            }
+            ul.dropdown-content.select-dropdown li:not(.disabled) span { 
+                color: #ee6e73;
+            }
+            input {
+                color: #000000 !important;
+            }
+			input[type=range]::-webkit-slider-thumb {
+				background-color: #ee6e73;
+			}
+			input[type=range]::-moz-range-thumb {
+				background-color: #ee6e73;
+			}
+			input[type=range]::-ms-thumb {
+				background-color: #ee6e73;
+			}
+			  input[type=range] + .thumb {
+				background-color: #ee6e73;
+			}
+			input[type=range] + .thumb.active .value {
+				color: #fdfdfd;
+			}
+			.confirm-button {
+				position: absolute;
+				height: 100px;
+				width: 300px;
+				font-size: 1.8em;
+				line-height: 80px;
+			}
         </style>
     </head>
     <body>
@@ -61,32 +133,204 @@
         </div>
         <div class="par" data-parallax="0.5"></div>
         <div class="content-box-wrapper">
-            <div class="content-box">
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col s5">
-                                <input id="first_name" type="text" class="validate" autocomplete="no">
-                                <label for="first_name">How many people are you booking for?</label>
+            <div class="content-box row">
+                <div class="booking-box col s12 m6">
+                    <div class="row">
+                        <form class="col s12">
+                            <h4 style="color: #343434; text-decoration: underline; font-weight: bold">Booking</h4>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input placeholder="1 - 35" id="no_of_bookings" type="number" style="color: #343434">
+                                    <label for="no_of_bookings">Number of bookings</label>
+                                    <span class="red-text" id="booking_out_of_range">Input Required</span>
+                                </div>
+								<div class="input-field col s6">
+									<input id="booking_date" type="text" class="datepicker">
+									<label for="booking_date">Booking Date</label>
+								</div>
                             </div>
-                        </div>
-                        <form action="#">
-                            <p>
-                                <input type="checkbox" id="test5" />
-                                <label style="color: #000000" for="test5">Want lunch?  Pre-pay for the caf&eacute;</label>
-                            </p>
                         </form>
-                    </form>
+                    </div>
+                </div>
+				<div class="activity-box col s12 m6" style="top: 0%; right: 0%">
+					<form class="col s12">
+						<h4 style="color: #343434; text-decoration: underline; font-weight: bold">Activities</h4>
+					</form>
+                </div>
+				<div class="cafereserve-box col s11 m5" style="top: 15%; left: 3%">
+                    <div class="row">
+                        <form class="col s12">
+							<p style="color: #343434; font-size: 1.3em">Bookings are able to be made for the caf&eacute;.  You may place reservations for the caf&eacute; here.</p><br><br>
+							<p class="range-field">
+								<input type="range" id="test5" min="0" max="35" />
+							</p>
+                        </form>
+                    </div>
+                </div>
+				<div class="contact-box col s12 m6" style="top: 35%; left 0%">
+                    <div class="row">
+                        <form class="col s12">
+                            <h4 style="color: #343434; text-decoration: underline; font-weight: bold">Contact Details</h4>
+                            <div class="row">
+                                <div class="input-field col s6">
+									<input id="first_name" type="text">
+									<label for="first_name">First Name</label>
+								</div>
+								<div class="input-field col s6">
+									<input id="last_name" type="text">
+									<label for="last_name">Last Name</label>
+								</div>
+								<div class="input-field col s12">
+									<input id="telephone" type="text">
+									<label for="telephone">Telephone</label>
+								</div>
+								<div class="input-field col s12">
+									<input id="email" type="text">
+									<label for="email">E-mail</label>
+								</div>
+								<div class="input-field col s6">
+									<input id="postcode" type="text">
+									<label for="postcode">Postcode</label>
+								</div>
+								<div class="input-field col s6">
+									<input id="address" type="text">
+									<label for="address">Address</label>
+								</div>
+								<div class="input-field col s6">
+									<input id="town" type="text">
+									<label for="town">Town</label>
+								</div>
+								<div class="input-field col s6">
+									<input id="city" type="text">
+									<label for="city">City</label>
+								</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+				<div class="payment-box col s12 m6" style="top: 80%; left: 0%">
+                    <div class="row">
+                        <form class="col s12">
+                            <h4 style="color: #343434; text-decoration: underline; font-weight: bold">Payment Details</h4>
+                            <div class="row">
+                                <div class="input-field col s9">
+									<input id="card_number" type="text">
+									<label for="card_number">Card Number</label>
+								</div>
+								<div class="input-field col s3">
+									<input id="security_code" type="text">
+									<label for="security_code">Security Code</label>
+								</div>
+								<div class="input-field col s6">
+									<input id="card_exp_month" type="text">
+									<label for="card_epx_month">Card Expiration Month</label>
+								</div>
+								<div class="input-field col s6">
+									<input id="card_epx_year" type="text">
+									<label for="card_epx_year">Card Expiration Year</label>
+								</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+				<div class="confirmation-box col s11 m5" style="top: 40%; left: 52.5%">
+                    <div class="row">
+                        <form class="col s12">
+                            <h4 style="color: #343434; text-decoration: underline; font-weight: bold">Confirm Booking</h4>
+                            <div class="row">
+                                <div class="confirmation-info-box" style="text-decoration: underline; font-weight: bold; left: 8%">
+									<p style="font-size: 1.15em">Booking Date:<span id="confirm_date" style="margin-left: 5px"> </span></p>
+								</div>
+								<div class="confirmation-info-box" style="text-decoration: underline; font-weight: bold; left: 58%">
+									<p style="font-size: 1.15em">Places Booked:<span id="confirm_places" style="margin-left: 5px"> </span></p>
+								</div>
+                            </div>
+							<div class="row">
+								<div class="col s12">
+									<table class="striped" style="color: #343434; margin-top: 25px">
+										<thead>
+											<th>Activity</th>
+											<th>Price</th>
+										</thead>
+										<tbody id="confirm_table">
+											<tr class="no-delete"><td>Caf&eacute; Reservations</td><td>&pound;<span id="cafe_price">0</span></td></tr>
+											<tr class="no-delete"><td>Total</td><td>&pound;<span id="booking_total">0</span></td></tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="js/materialize.min.txt"></script>
-        
         <script>
-            
+			var onchangefunction;
+            // Get a random token which will be the id given to each input
+            function generate_token(length){
+                var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".split("");
+                var b = [];
+                for (var i=0; i<length; i++) {
+                    var j = (Math.random() * (a.length-1)).toFixed(0);
+                    b[i] = a[j];
+                }
+                return b.join("");
+            }
+            // A function to replace all instances in a string eg: "abcabc".replaceAll("abc", "def") -> "defdef"
+            String.prototype.replaceAll = function(search, replacement) {
+                var target = this;
+                return target.split(search).join(replacement);
+            };
+            // Check an element exists eg: $('#my-element').exists() -> true/false
+            jQuery.fn.exists = function(){return this.length>0;}
         </script>
-
+        <script>
+		
+			var activities = [
+				"Tree Ropes",
+				"Abseiling",
+				"Bike Scramble",
+				"Rafting"
+			];
+		
+            var last_id = null;
+            var add_activity_html = '<div class="row activity-select-wrapper" id="{id}"><form class="col s12" style="padding: 0px;"><div class="input-field col s6"><select id="{id}-selector" class="black-text selector activity-select-dropdown"><option value="" disabled selected>Add Activity</option><option value="0">Tree Ropes</option><option value="1">Abseiling</option><option value="2">Bike Scramble</option><option value="3">Rafting</option></select><label>Choose an Activity</label></div><div class="input-field col s3"><input type="text" class="timepicker validate" id="{id}-start-time"><label for="{id}-start-time">Start Time</label></div><div class="input-field col s3"><input type="text" class="timepicker validate" id="{id}-end-time"><label for="{id}-end-time">End Time</label></div></form></div>';
+            function add_new_activity() {
+                $('#'+last_id+"-selector").unbind('change', onchangefunction);  //Disable the last element from making more rows
+                // Generate a token for the id
+                while((last_id === null) || ($('#'+last_id).exists())) {
+                    last_id = generate_token(16);  // Check it doesn't somehow come up with an existing id
+                }
+                // Get the new activity html code and insert the new id
+                var new_activity = add_activity_html.replaceAll('{id}', last_id);
+                // Re-initialize the forms so they work
+                $('.activity-box').append(new_activity);
+                $('select').material_select();
+                $('.timepicker').pickatime({
+                    default: 'now',
+                    twelvehour: true,
+                    autoclose: true,
+                    ampmclickable: true,
+                });
+				onchangefunction = function() {
+					console.log($(".activity-select-wrapper").length);
+					if ($(".activity-select-wrapper").length >= 4) {return;}
+                    add_new_activity();
+                }
+				// This sets up the event listener for the last element added. It only works when I put it here even though the docs tell me it should work anywhere.
+                $('#'+last_id+"-selector").change(onchangefunction);
+				$('#'+last_id+"-selector").change(update_table);
+            }
+			function update_table() {
+				$("#confirm_table tr:not(.no-delete)").detach();
+				$("select.activity-select-dropdown").each(function(){
+					if ($(this).val() === null) { return true; } //Return true to continue to the next element in the loop as per the JQuery documentation
+					$("#confirm_table").prepend("<tr><td>NAME</td><td>PRICE</td></tr>".replace('NAME', activities[$(this).val()]).replace("PRICE", $("#no_of_bookings").val() * 5) );
+				});
+			}
+        </script>
         <script>
             window.onload = function() {
                 var elements = document.getElementsByClassName('par');
@@ -109,6 +353,7 @@
         </script>
         <script>
             $(document).ready(function(event) {
+                add_new_activity();  // Make the first activity box appear
                 $(".button-collapse").sideNav({
                     closeOnClick: true
                 });
@@ -126,7 +371,79 @@
                         }
                     });
                 });
+				$('#booking_date').change(get_parameters);
+				$('#no_of_bookings').change(get_parameters);
+				$('#no_of_bookings').change(update_table);
+				$('.range-field input').change(function(){
+					$('#cafe_price').html($(this).val() * 2);
+				});
+				$('.range-field input, #no_of_bookings, select.activity-select-dropdown').change(function(){
+					var total = 0; //parseInt($('#cafe_price').val());
+					$("#confirm_table tr:not(.no-delete)").each(function(){
+						total += parseInt($(this).children().eq(1).html());
+						console.log($(this).children().eq(1).html());
+					});
+					$('#booking_total').html(total);
+				});
             } );
         </script>
+        <script>
+            $('#no_of_bookings').blur(function() {
+                if ($(this).val() < 1) {
+                    $('#booking_out_of_range').html('Not Enough People Booked.');
+                }   else if ($(this).val() > 35) {
+                    $('#booking_out_of_range').html('Too Many People Booked.');
+                }   else {
+                    $('#booking_out_of_range').html('');  // Added this so when the user inputs a correct value, the error goes away
+                }
+            } );
+        </script>
+		<script>
+			$('.datepicker').pickadate({
+                selectMonths: true,
+                selectYears: 15,
+                today: 'Today',
+                clear: 'Clear',
+                close: 'Ok',
+                closeOnSelect: false
+            } );
+		</script>
+        <script>
+            $('.timepicker').blur(function() {
+                // Just pretend this works
+                if (new Date($(this).val()) < new Date(hours=10, minutes=00)) {
+                    $('#time_out_of_range').html('Cannot Begin Activities Before 10:00')
+                }	else if (new Date($(this).val()) > new Date(hours=17, minutes=00)) {
+                    $('#time_out_of_range').html('Cannot End Activites After 17:00')
+                }
+            } );
+        </script>
+		<script>
+			var slider = document.getElementById('test-slider');
+			noUiSlider.create(slider, {
+				start: [20, 80],
+				connect: true,
+				step: 1,
+				orientation: 'horizontal',
+				range: {
+					'min': 0,
+					'max': 35
+				},
+				format: wNumb({
+					decimals: 0
+				})
+			} );
+		</script>
+		<script>
+			function get_parameters() {
+				var date = $('#booking_date').val();
+				var bookings = $('#no_of_bookings').val();
+				$('#confirm_date').html(date);
+				$('#confirm_places').html(bookings);
+			}
+		</script>
+		<script>
+			
+		</script>
     </body>
 </html>
